@@ -1,0 +1,77 @@
+generated: '2026-08-27'
+method: derived
+source: https://github.com/yuhonas/free-exercise-db#readme + json-schema/free-exercise-db-exercise.json
+name: Free Exercise DB API Conventions
+summary: >-
+  Cross-cutting runtime semantics for a read-only, statically-served JSON dataset. Most
+  API conventions do not apply because there is no write surface and no query interface;
+  where that is the case it is recorded as na rather than omitted.
+authentication:
+  style: none
+  detail: Anonymous HTTPS GET. See authentication/free-exercise-db-authentication.yml
+transport:
+  protocol: https
+  content_type: application/json
+  collection: https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/dist/exercises.json
+  single_record: https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/<id>.json
+  images: https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/<id>/<n>.jpg
+  alternate_distributions:
+  - {format: newline-delimited JSON, target: dist/exercises.nd.json, note: 'Built locally with `make dist/exercises.nd.json`; intended for PostgreSQL COPY. Not published in the repository.'}
+  - {format: csv, target: dist/exercises.csv, note: 'Built locally with `make dist/exercises.csv` via csvkit. Not published in the repository.'}
+pagination:
+  style: none
+  detail: >-
+    The entire catalog ships as one ~1 MB JSON array of 873 objects. There are no page,
+    cursor, limit or offset parameters, and no server-side filtering — the reference
+    frontend does all filtering client-side with fuse.js.
+filtering:
+  style: client-side
+  detail: No query string is interpreted by the host; it serves static files only.
+field_expansion: na
+sparse_fields: na
+metadata: na
+request_id_tracing:
+  supported: false
+  detail: >-
+    No provider-issued correlation header. GitHub's CDN returns its own x-github-request-id
+    on raw.githubusercontent.com responses, which is GitHub's, not the provider's.
+versioning:
+  scheme: git-ref
+  detail: >-
+    There are no releases, tags or semantic versions. The only version handle is the git
+    ref in the URL path. `main` floats to the latest commit; substituting a commit SHA for
+    `main` pins the dataset immutably. Consumers who need reproducibility must pin the SHA
+    themselves — the provider does not publish a stable versioned URL.
+  pinned_example: https://raw.githubusercontent.com/yuhonas/free-exercise-db/<commit-sha>/dist/exercises.json
+error_envelope:
+  style: none
+  detail: >-
+    No structured error body. A missing document returns GitHub's plain-text `404: Not Found`
+    on raw.githubusercontent.com; the GitHub Pages site returns an HTML 404 page. Neither is
+    authored by the provider, so no error catalog is derivable.
+rate_limit_signaling:
+  documented: false
+  detail: See rate-limits/free-exercise-db-rate-limits.yml — the provider publishes none.
+idempotency:
+  supported: na
+  detail: >-
+    Read-only surface. Every request is a GET; there is no write to make idempotent and no
+    idempotency key to send.
+dry_run_mode:
+  supported: na
+  detail: Read-only surface — nothing to rehearse.
+reversibility:
+  grade: na
+  detail: >-
+    The API has no write surface. There is no create, update, delete, charge, send or
+    provision operation, so there is nothing an agent could take that would need taking
+    back. reversibility, dry_run_mode and idempotency are all genuinely not applicable
+    here rather than missing.
+  write_operations: []
+  reversal_operations: []
+cross_links:
+  authentication: authentication/free-exercise-db-authentication.yml
+  data_model: data-model/free-exercise-db-data-model.yml
+  vocabulary: vocabulary/free-exercise-db-vocabulary.yml
+  lifecycle: lifecycle/free-exercise-db-lifecycle.yml
+  rate_limits: rate-limits/free-exercise-db-rate-limits.yml

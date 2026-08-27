@@ -1,0 +1,77 @@
+generated: '2026-08-27'
+method: derived
+source: json-schema/free-exercise-db-exercise.json
+name: Free Exercise DB Controlled Vocabulary
+description: >-
+  Every enumerated value in the Free Exercise DB record schema. These are the exact
+  enum members published in the provider's own schema.json (JSON Schema draft-04) and
+  are the only legal values for the corresponding fields. Counts are observed across
+  the 873 records in dist/exercises.json.
+notes: >-
+  force, mechanic and equipment additionally permit null — the provider's README states
+  these three fields are incomplete in some records, which is why null was admitted to
+  the enum rather than the field being made optional.
+vocabularies:
+- name: category
+  field: category
+  nullable: false
+  terms:
+  - {term: strength, count: 581}
+  - {term: stretching, count: 123}
+  - {term: plyometrics, count: 61}
+  - {term: powerlifting, count: 38}
+  - {term: olympic weightlifting, count: 35}
+  - {term: strongman, count: 21}
+  - {term: cardio, count: 14}
+- name: level
+  field: level
+  nullable: false
+  terms:
+  - {term: beginner, count: 523}
+  - {term: intermediate, count: 293}
+  - {term: expert, count: 57}
+- name: force
+  field: force
+  nullable: true
+  terms: [static, pull, push]
+- name: mechanic
+  field: mechanic
+  nullable: true
+  terms: [isolation, compound]
+- name: equipment
+  field: equipment
+  nullable: true
+  terms:
+  - medicine ball
+  - dumbbell
+  - body only
+  - bands
+  - kettlebells
+  - foam roll
+  - cable
+  - machine
+  - barbell
+  - exercise ball
+  - e-z curl bar
+  - other
+- name: muscle
+  field: primaryMuscles[] / secondaryMuscles[]
+  nullable: false
+  terms:
+  - abdominals
+  - abductors
+  - adductors
+  - biceps
+  - calves
+  - chest
+  - forearms
+  - glutes
+  - hamstrings
+  - lats
+  - lower back
+  - middle back
+  - neck
+  - quadriceps
+  - shoulders
+  - traps
+  - triceps

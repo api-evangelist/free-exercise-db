@@ -1,0 +1,56 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org, rubygems.org, crates.io, repo.packagist.org +
+  https://github.com/yuhonas/free-exercise-db#readme
+name: Free Exercise DB Packages
+summary: >-
+  No first-party client library exists in any registry. The project distributes data, not
+  code: the README's own integration instructions are "check the repo out" or "GET the raw
+  JSON", and there is no root package.json — the only package manifest in the repository is
+  site/package.json, which is the private, unpublished Vue frontend (name "-site",
+  version 0.0.0, "private": true). One genuinely third-party npm package repackages the
+  dataset and is recorded below with official:false.
+official_sdk_count: 0
+packages:
+- name: react-muscle-map
+  registry: npm
+  official: false
+  version: 0.1.2
+  published: '2026-06-21'
+  url: https://www.npmjs.com/package/react-muscle-map
+  repository: https://github.com/Josep1992/react-muscle-map
+  license: Unlicense
+  language: javascript
+  description: Themeable React muscle maps and packaged datasets for free-exercise-db.
+  note: >-
+    Authored by Josep1992, not by yuhonas — a downstream consumer that bundles the dataset,
+    not a client the provider ships. Recorded for completeness; it does not count toward
+    official_sdk_count and no SDKs pointer is emitted on its account.
+absent_registries:
+- {registry: npm, package: free-exercise-db, status: 404, version: null, note: 'Checked registry.npmjs.org — no package under this name.'}
+- {registry: pypi, package: free-exercise-db, status: 404, version: null, note: 'Checked pypi.org/pypi/free-exercise-db/json.'}
+- {registry: rubygems, package: free-exercise-db, status: 404, version: null, note: 'Checked rubygems.org/api/v1/gems/free-exercise-db.json.'}
+- {registry: crates.io, package: free-exercise-db, status: 404, version: null, note: 'Checked crates.io/api/v1/crates/free-exercise-db.'}
+- {registry: packagist, package: yuhonas/free-exercise-db, status: 404, version: null, note: 'Checked repo.packagist.org.'}
+distribution:
+  primary:
+    method: raw file over https
+    url: https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/dist/exercises.json
+    pinned: false
+    version: null
+    note: >-
+      The distribution URL floats to the tip of `main` and there are no releases or tags, so
+      a consumer cannot tell which snapshot of the dataset they received. Recorded as
+      version: null deliberately — this is the finding, not a gap in our check. Pinning a
+      commit SHA in place of `main` is possible but is the consumer's job, not something the
+      provider publishes.
+  secondary:
+    method: git clone
+    url: https://github.com/yuhonas/free-exercise-db
+tooling_dependencies:
+  note: >-
+    The Makefile build tasks depend on third-party tools the consumer installs themselves —
+    jq for the combined and newline-delimited outputs, csvkit's in2csv for CSV, and
+    check-jsonschema (pip) for linting. These are build prerequisites, not distributed
+    packages.

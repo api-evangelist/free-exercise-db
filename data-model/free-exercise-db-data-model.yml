@@ -1,0 +1,50 @@
+generated: '2026-08-27'
+method: derived
+source: json-schema/free-exercise-db-exercise.json + https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/dist/exercises.json
+name: Free Exercise DB Data Model
+description: >-
+  Single-entity, flat data model derived from the provider's published JSON Schema and
+  confirmed against the 873-record combined dataset. There are no foreign keys and no
+  nested objects; the only cross-document reference is an image path that resolves to a
+  binary asset on the same host.
+entities:
+- name: Exercise
+  identifier: id
+  id_form: >-
+    PascalCase_underscore slug matching ^[0-9a-zA-Z_-]+$, e.g. Alternate_Incline_Dumbbell_Curl.
+    It is also the exercises/<id>.json file name and the images/<id>/ directory name, so the
+    id is the join key across the whole distribution.
+  record_count: 873
+  document: exercises/<id>.json
+  collection_document: dist/exercises.json
+  fields:
+  - {name: id, type: string, required: true, note: 'Present in dist/exercises.json; the per-file documents omit it and derive it from the filename.'}
+  - {name: name, type: string, required: true}
+  - {name: force, type: string|null, required: false, vocabulary: force}
+  - {name: level, type: string, required: true, vocabulary: level}
+  - {name: mechanic, type: string|null, required: true, vocabulary: mechanic}
+  - {name: equipment, type: string|null, required: true, vocabulary: equipment}
+  - {name: primaryMuscles, type: array<string>, required: true, vocabulary: muscle}
+  - {name: secondaryMuscles, type: array<string>, required: true, vocabulary: muscle}
+  - {name: instructions, type: array<string>, required: true}
+  - {name: category, type: string, required: true, vocabulary: category}
+  - {name: images, type: array<string>, required: true, note: 'Relative paths of the form <id>/<n>.jpg; resolve against https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/'}
+relationships:
+- from: Exercise
+  to: ExerciseImage
+  cardinality: has_many
+  via: images[]
+  note: >-
+    Not a modelled entity — images[] holds relative file paths, not identifiers of a
+    separate record type. Recorded here because it is the only outbound reference in the
+    model.
+- from: Exercise
+  to: muscle vocabulary
+  cardinality: has_many
+  via: primaryMuscles[] / secondaryMuscles[]
+  note: Enumerated vocabulary membership, not a record reference.
+absent:
+  - No user, program, workout, set, or session entities — the dataset is a reference
+    catalog of exercise definitions only.
+  - No timestamps, versions, or audit fields on any record.
+render: null

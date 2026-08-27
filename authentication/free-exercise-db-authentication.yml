@@ -1,0 +1,26 @@
+generated: '2026-08-27'
+method: searched
+source: https://github.com/yuhonas/free-exercise-db#how-do-i-use-them
+docs: https://github.com/yuhonas/free-exercise-db#how-do-i-use-them
+name: Free Exercise DB Authentication
+summary: >-
+  No authentication of any kind. The provider's README documents consumption as a plain
+  HTTPS GET against raw.githubusercontent.com — no account, no key, no token, no
+  registration step exists anywhere in the project. This is the complete auth profile,
+  not a gap in our research: there is nothing to authenticate to.
+auth_required: false
+security_schemes: []
+schemes_observed:
+- style: none
+  transport: https
+  note: >-
+    Verified by an anonymous GET of dist/exercises.json (HTTP 200, 1,001,472 bytes) with
+    no Authorization header.
+notes:
+- >-
+    Because the dataset is served from GitHub's raw content CDN, GitHub's own anonymous
+    access rules apply to the transport. The provider publishes no auth layer of its own
+    and issues no credentials.
+- >-
+    No OAuth, no OpenID Connect, no API keys, no mTLS — scopes/ is therefore not
+    applicable and no scopes artifact is written.

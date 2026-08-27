@@ -1,0 +1,31 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://github.com/yuhonas/free-exercise-db + npm registry search + web search for a
+  free-exercise-db MCP server
+name: Free Exercise DB MCP
+summary: >-
+  No MCP server exists — neither hosted nor packaged, neither first-party nor a credible
+  community one. No candidate tool list was derived either, because there is no OpenAPI to
+  derive it from: the surface is a single static JSON document with no operations. NO
+  MCPServer pointer is emitted in apis.yml.
+status: none
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: none
+  verified: searched
+tools: []
+search_record:
+- {surface: 'npm registry search "free-exercise-db"', result: 'One third-party package (react-muscle-map, a React component library), no MCP server.'}
+- {surface: 'web search "free-exercise-db MCP server"', result: 'No first-party or community MCP server for this dataset. An unrelated jefit-mcp project references its own exercise database, not this one.'}
+- {surface: 'repository root listing', result: 'No mcp/ directory, no server code, no MCP manifest. The repository contains data, a JSON Schema, a Makefile and a Vue site.'}
+notes:
+- >-
+    Deriving a candidate tool list was considered and rejected: with no OpenAPI operations
+    and no query interface, the only honest "tool" would be "fetch a 1 MB JSON file", which
+    is a URL, not an agent surface. An agent that wants this data should GET
+    https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/dist/exercises.json and
+    filter locally — that is documented in llms/free-exercise-db-llms.txt.

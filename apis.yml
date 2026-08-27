@@ -1,7 +1,18 @@
 aid: free-exercise-db
 name: Free Exercise DB
-description: 'Free Exercise DB is a company surfaced via the API Evangelist harvest backlog (source: health-device-stack)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Free Exercise DB is an open, public-domain exercise dataset published by
+  yuhonas on GitHub: 873 individual JSON documents describing strength, stretching,
+  plyometric, powerlifting, olympic-weightlifting, strongman and cardio exercises, each
+  with a stable id, name, difficulty level, force and mechanic classification, required
+  equipment, primary and secondary muscle groups, step-by-step instructions and
+  demonstration images. Every record validates against a published JSON Schema
+  (draft-04) that also acts as the project''s controlled vocabulary for muscles,
+  equipment and categories. There is no REST API and no OpenAPI: consumption is by
+  unauthenticated HTTPS GET of the combined dist/exercises.json array (or of a single
+  exercise document) from raw.githubusercontent.com, with images served from the same
+  host. A Vue.js browsable/searchable frontend is published to GitHub Pages. The whole
+  dataset is released under the Unlicense.'
+image: https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/site/public/screenshot.png
 url: https://raw.githubusercontent.com/api-evangelist/free-exercise-db/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:health-device-stack
@@ -12,7 +23,34 @@ created: '2026-08-27'
 modified: '2026-08-27'
 tags:
 - Company
-apis: []
+- Open Data
+- Fitness
+- Exercise
+- Health
+- Public Domain
+- Dataset
+- JSON Schema
+- Workout
+apis:
+- name: Free Exercise DB Dataset
+  description: 'Read-only, unauthenticated dataset surface. The provider''s own README
+    documents consumption as an HTTPS GET of the combined exercises.json array (873
+    records) or of a single exercise document, with image paths resolved against the
+    same host. There are no operations beyond static document retrieval, no
+    authentication, and no query interface — filtering happens client-side.'
+  humanURL: https://github.com/yuhonas/free-exercise-db
+  baseURL: https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/
+  tags:
+  - Exercise
+  - Fitness
+  - Open Data
+  properties:
+  - type: JSONSchema
+    url: json-schema/free-exercise-db-exercise.json
+  - type: Examples
+    url: examples/free-exercise-db-alternate-incline-dumbbell-curl.json
+  - type: DataModel
+    url: data-model/free-exercise-db-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -21,3 +59,40 @@ maintainers:
 common:
 - type: Website
   url: https://yuhonas.github.io/free-exercise-db/
+- type: Documentation
+  url: https://github.com/yuhonas/free-exercise-db#readme
+- type: APIReference
+  url: https://github.com/yuhonas/free-exercise-db/blob/main/schema.json
+- type: GettingStarted
+  url: https://github.com/yuhonas/free-exercise-db#how-do-i-use-them
+- type: Support
+  url: https://github.com/yuhonas/free-exercise-db/issues
+- type: GitHubOrganization
+  url: https://github.com/yuhonas
+- type: SourceCode
+  url: https://github.com/yuhonas/free-exercise-db
+- type: TermsOfService
+  url: https://github.com/yuhonas/free-exercise-db/blob/main/LICENSE.md
+- type: Vocabulary
+  url: vocabulary/free-exercise-db-vocabulary.yml
+- type: Authentication
+  url: authentication/free-exercise-db-authentication.yml
+- type: Conventions
+  url: conventions/free-exercise-db-conventions.yml
+- type: Conformance
+  url: conformance/free-exercise-db-conformance.yml
+- type: Lifecycle
+  url: lifecycle/free-exercise-db-lifecycle.yml
+- type: Plans
+  url: plans/free-exercise-db-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/free-exercise-db-rate-limits.yml
+- type: Packages
+  url: packages/free-exercise-db-packages.yml
+- type: LLMsTxt
+  url: llms/free-exercise-db-llms.txt
+x-enrichment:
+  date: '2026-08-27'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1

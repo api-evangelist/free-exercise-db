@@ -1,0 +1,25 @@
+generated: '2026-08-27'
+method: searched
+source: https://github.com/yuhonas/free-exercise-db/blob/main/LICENSE.md
+name: Free Exercise DB Plans and Pricing
+summary: >-
+  There is no commercial surface. The dataset is released into the public domain under the
+  Unlicense and is served as static files from GitHub — there is no pricing page, no plans,
+  no quotas, no account, no billing, and no "contact sales" path. plan_count is 0 because
+  the provider genuinely offers nothing to buy, not because pricing was undiscoverable.
+plan_count: 0
+plans: []
+free_tier:
+  available: true
+  cost: 0
+  restrictions: none
+  note: >-
+    The entire dataset, including images, is free for any use including commercial use, with
+    no attribution requirement, under the Unlicense.
+license:
+  spdx: Unlicense
+  url: https://github.com/yuhonas/free-exercise-db/blob/main/LICENSE.md
+notes:
+- >-
+    Probed for a pricing page on both hosts; none exists. The README, the GitHub Pages
+    frontend and the repository metadata contain no commercial terms of any kind.

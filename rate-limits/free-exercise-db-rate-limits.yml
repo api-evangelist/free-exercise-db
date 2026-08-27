@@ -1,0 +1,39 @@
+generated: '2026-08-27'
+method: searched
+source: https://github.com/yuhonas/free-exercise-db#how-do-i-use-them
+name: Free Exercise DB Rate Limits
+summary: >-
+  The provider publishes no rate limits and returns no rate-limit headers of its own. What
+  a consumer actually meets is GitHub's undocumented raw-content CDN throttling, which is
+  GitHub's policy and can change without notice — the project's own README recommends
+  either checking the repository out locally or fronting the images with a CDN such as
+  imagekit.io, which is the closest thing to guidance it gives on volume.
+limit_count: 0
+limits: []
+response_headers:
+  provider_published: []
+  observed_on_transport:
+  - name: x-ratelimit-limit
+    note: >-
+      raw.githubusercontent.com does not return x-ratelimit-* on anonymous static file
+      responses. api.github.com does, but that is a different surface and not this API.
+  detail: >-
+    An anonymous GET of dist/exercises.json returned HTTP 200 with no RateLimit-*,
+    X-RateLimit-* or Retry-After header. There is no runtime rate-limit signal for an agent
+    to read.
+exhaustion:
+  status_code: null
+  detail: >-
+    Undocumented. GitHub may serve 429 or degrade under abuse conditions on its raw content
+    host; the provider makes no statement and we did not attempt to induce it.
+guidance_from_provider:
+- >-
+    'You can check the repo out and use the JSON files and images locally' — the README's
+    first recommended consumption path, which removes the transport limit entirely.
+- >-
+    'or leverage something like imagekit.io for dynamic image resizing which is utilized on
+    the frontend' — the README's recommendation for serving the images at volume.
+notes:
+- >-
+    An honest zero: not undiscovered limits, but a provider that has no rate-limiting layer
+    because it operates no server.

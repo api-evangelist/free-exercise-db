@@ -1,0 +1,37 @@
+generated: '2026-08-27'
+method: probed
+source: https://yuhonas.github.io/.well-known/ + https://raw.githubusercontent.com/.well-known/
+name: Free Exercise DB Well-Known Documents
+summary: >-
+  Every /.well-known/ path probed on both hosts returned 404. No document was served, so no
+  file was saved and NO WellKnown or SecurityTxt pointer is emitted in apis.yml — this
+  manifest records a verified absence, not a presence. Note that neither host belongs to the
+  provider: yuhonas.github.io and raw.githubusercontent.com are GitHub-operated, and the
+  project controls no domain of its own, so it has no place to serve a well-known document
+  from even if it wanted to.
+hosts:
+- host: yuhonas.github.io
+  host_operator: GitHub Pages (not provider-controlled)
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+- host: raw.githubusercontent.com
+  host_operator: GitHub raw content CDN (not provider-controlled)
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+notes:
+- >-
+    The yuhonas.github.io 404s return GitHub Pages' HTML 404 page; the
+    raw.githubusercontent.com 404s return the plain text "404: Not Found". Neither is a
+    soft-200 false positive.

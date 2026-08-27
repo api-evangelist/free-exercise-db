@@ -1,0 +1,60 @@
+generated: '2026-08-27'
+method: searched
+source: https://github.com/yuhonas/free-exercise-db + https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/.github/workflows/ci.yaml
+name: Free Exercise DB Lifecycle
+summary: >-
+  An unversioned, continuously-published open dataset. Everything a mature API lifecycle
+  would carry — releases, a deprecation policy, an SLA, a status page — is genuinely absent,
+  and the only lifecycle machinery the project operates is a CI job that lints and deploys
+  on every push to main.
+versioning:
+  scheme: none
+  detail: >-
+    The GitHub repository has zero releases and zero tags (checked via the GitHub API). The
+    dataset is consumed from the `main` ref, which floats. A consumer can pin a commit SHA in
+    the raw.githubusercontent.com path, but the provider publishes no version identifier of
+    its own and no changelog.
+  pinnable: true
+  pin_mechanism: git commit SHA substituted for `main` in the raw content URL
+deprecation_policy:
+  published: false
+  detail: No deprecation or sunset policy. No RFC 8594 Deprecation/Sunset headers. No Deprecation pointer is emitted.
+sunset_headers: false
+sla:
+  published: false
+  detail: >-
+    None. Availability is whatever GitHub Pages and raw.githubusercontent.com provide; the
+    provider makes no commitment and the Unlicense disclaims all warranty.
+status_page:
+  published: false
+  detail: >-
+    The project operates no status page. githubstatus.com covers the hosting, but that is
+    GitHub's status page for GitHub's platform, not a provider-published surface — asserting
+    it here would credit this project with someone else's operations. No StatusPage pointer
+    is emitted.
+support:
+  channel: GitHub Issues
+  url: https://github.com/yuhonas/free-exercise-db/issues
+  open_issues: 6
+release_engineering:
+  ci: .github/workflows/ci.yaml
+  ci_name: 'Test, Lint & Deploy Site to Github Pages'
+  triggers: [push to main, pull_request to main, workflow_dispatch]
+  actions:
+  - Lint every exercises/*.json against schema.json (check-jsonschema)
+  - Unit tests (Vitest) and end-to-end tests (Cypress) for the Vue frontend
+  - Deploy the frontend to GitHub Pages
+repository:
+  created: '2023-03-30'
+  last_push: '2026-05-24'
+  default_branch: main
+  archived: false
+  stars: 1805
+  forks: 471
+  license: Unlicense
+deprecated_operations: []
+notes:
+- >-
+    Last content push 2026-05-24 against a 2023 creation date — the project is maintained but
+    not on a cadence, which is normal for a reference dataset that changes only when exercises
+    are added or corrected.
