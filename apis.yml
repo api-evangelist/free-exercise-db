@@ -1,0 +1,23 @@
+aid: free-exercise-db
+name: Free Exercise DB
+description: 'Free Exercise DB is a company surfaced via the API Evangelist harvest backlog (source: health-device-stack)
+  and added to the network as a stub for full-pipeline profiling.'
+url: https://raw.githubusercontent.com/api-evangelist/free-exercise-db/refs/heads/main/apis.yml
+x-type: company
+x-source: harvest:health-device-stack
+x-tier: stub
+x-tier-reason: harvest
+specificationVersion: '0.20'
+created: '2026-08-27'
+modified: '2026-08-27'
+tags:
+- Company
+apis: []
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+- FN: APIs.json
+  email: info@apis.io
+common:
+- type: Website
+  url: https://yuhonas.github.io/free-exercise-db/
