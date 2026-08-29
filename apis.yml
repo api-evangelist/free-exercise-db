@@ -12,6 +12,18 @@ description: 'Free Exercise DB is an open, public-domain exercise dataset publis
   exercise document) from raw.githubusercontent.com, with images served from the same
   host. A Vue.js browsable/searchable frontend is published to GitHub Pages. The whole
   dataset is released under the Unlicense.'
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 image: https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/site/public/screenshot.png
 url: https://raw.githubusercontent.com/api-evangelist/free-exercise-db/refs/heads/main/apis.yml
 x-type: company
