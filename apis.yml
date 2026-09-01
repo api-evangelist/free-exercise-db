@@ -79,6 +79,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: License
+  name: Unlicense
+  url: https://github.com/yuhonas/free-exercise-db/blob/main/LICENSE
 - type: Website
   url: https://yuhonas.github.io/free-exercise-db/
 - type: Documentation
