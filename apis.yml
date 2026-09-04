@@ -24,6 +24,19 @@ deliveryModel:
   - repository-unlicensed
   generated: '2026-08-28'
   method: derived
+accessModel:
+  pricing: unknown
+  onboarding: open
+  trial: false
+  try_now: false
+  public: true
+  label: Open access
+  confidence: low
+  source:
+  - authentication
+  - rate-limits
+  generated: '2026-09-02'
+  method: derived
 image: https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/site/public/screenshot.png
 url: https://raw.githubusercontent.com/api-evangelist/free-exercise-db/refs/heads/main/apis.yml
 x-type: company
