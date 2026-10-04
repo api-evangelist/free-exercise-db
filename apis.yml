@@ -54,7 +54,7 @@ tags:
 - Health
 - Public Domain
 - Datasets
-- JSON-Schema
+- JSON Schema
 - Workouts
 tags_raw:
 - Company
@@ -66,6 +66,7 @@ tags_raw:
 - Dataset
 - JSON Schema
 - Workout
+- JSON-Schema
 apis:
 - name: Free Exercise DB Dataset
   description: 'Read-only, unauthenticated dataset surface. The provider''s own README
