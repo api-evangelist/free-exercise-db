@@ -64,5 +64,113 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Free Exercise DB is a company surfaced via the API Evangelist harvest backlog (source: health-device-stack) and added to the network as a stub for full-pipeline profiling.
-- https://yuhonas.github.io/free-exercise-db/
+Free Exercise DB is an open, public-domain exercise dataset published by yuhonas on GitHub: 873 individual JSON documents describing strength, stretching, plyometric, powerlifting, olympic-weightlifting, strongman and cardio exercises, each with a stable id, name, difficulty level, force and mechanic classification, required equipment, primary and secondary muscle groups, step-by-step instructions and demonstration images. Every record validates against a published JSON Schema (draft-04) that also acts as the project's controlled vocabulary for muscles, equipment and categories. There is no REST API and no OpenAPI: consumption is by unauthenticated HTTPS GET of the combined dist/exercises.json array (or of a single exercise document) from raw.githubusercontent.com, with images served from the same host. A Vue.js browsable/searchable frontend is published to GitHub Pages. The whole dataset is released under the Unlicense.
+
+**Areas:** Company · Open Data · Fitness · Exercise · Health · Public Domain · Datasets · JSON Schema · Workouts
+
+## Free Exercise DB on APIs.io
+
+Everything profiled for Free Exercise DB is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/free-exercise-db/](https://apis.io/providers/free-exercise-db/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Free Exercise DB Dataset](https://apis.io/apis/free-exercise-db/free-exercise-db-dataset/) — Read-only, unauthenticated dataset surface. The provider's own README documents consumption as an HTTPS GET of the combined exercises.json array (873…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### JSON Schema (1)
+
+The data models the API reads and writes.
+
+- [Free Exercise Db Exercise](https://apis.io/schemas/free-exercise-db/free-exercise-db-exercise/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Free Exercise Db Alternate Incline Dumbbell Curl](https://apis.io/examples/free-exercise-db/free-exercise-db-alternate-incline-dumbbell-curl/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Free Exercise Db Authentication](https://apis.io/security/free-exercise-db/free-exercise-db-authentication/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Free Exercise Db Plans Pricing](https://apis.io/plans/free-exercise-db/free-exercise-db-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Free Exercise Db Rate Limits](https://apis.io/rate-limits/free-exercise-db/free-exercise-db-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://yuhonas.github.io/free-exercise-db/)
+- [Documentation](https://github.com/yuhonas/free-exercise-db#readme)
+- [Getting started](https://github.com/yuhonas/free-exercise-db#how-do-i-use-them)
+- [API reference](https://github.com/yuhonas/free-exercise-db/blob/main/schema.json)
+- [Support](https://github.com/yuhonas/free-exercise-db/issues)
+- [Terms of service](https://github.com/yuhonas/free-exercise-db/blob/main/LICENSE.md)
+- [GitHub](https://github.com/yuhonas)
+
+## API Evangelist rating
+
+**Kin Score 22.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 13.7 |
+| Contract governance | 8.3 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 10.5 |
+
+**Agent readiness 6.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.7** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/free-exercise-db/](https://apis.io/providers/free-exercise-db/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Free Exercise DB: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/free-exercise-db/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
